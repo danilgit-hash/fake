@@ -1,0 +1,26 @@
+from faker import Faker
+
+# Создаем объект Faker с русской локализацией
+fake = Faker('ru_RU')
+
+def generate_fake_data():
+    first_name = fake.first_name()        # Имя
+    last_name = fake.last_name()          # Фамилия
+    middle_name = fake.middle_name()      # Отчество
+    country = fake.country()              # Страна
+    city = fake.city()                    # Город
+    phone_number = fake.phone_number()    # Номер телефона
+
+    return {
+        "Имя": first_name,
+        "Фамилия": last_name,
+        "Отчество": middle_name,
+        "Страна": country,
+        "Город": city,
+        "Номер телефона": phone_number
+    }
+
+# Генерация одного фейкового профиля
+fake_profile = generate_fake_data()
+for key, value in fake_profile.items():
+    print(f"{key}: {value}")
